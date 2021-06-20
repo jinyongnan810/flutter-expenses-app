@@ -21,7 +21,22 @@ class _AppState extends State<App> {
           appBar: AppBar(
             title: Text('Personal Expenses'),
           ),
-          body: Text("Initial"),
+          body: Column(
+            children: [
+              Container(
+                  width: double.infinity,
+                  child: Card(
+                    child: Text('chart'),
+                    elevation: 5,
+                  )),
+              Container(
+                  width: double.infinity,
+                  child: Card(
+                    child: Text('transactions'),
+                    elevation: 5,
+                  ))
+            ],
+          ),
         ));
   }
 }
