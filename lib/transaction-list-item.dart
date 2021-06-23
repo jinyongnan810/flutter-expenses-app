@@ -11,9 +11,32 @@ class TransactionListItem extends StatelessWidget {
       child: Card(
           child: Row(
         children: [
-          Container(child: Text(_tx.amount.toString())),
+          Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              decoration: BoxDecoration(
+                  border: Border.all(width: 2, color: Colors.purple)),
+              width: 100,
+              alignment: Alignment.center,
+              child: Text(
+                _tx.amount.toString(),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.purple),
+              )),
           Column(
-            children: [Text(_tx.title), Text(_tx.date.toString())],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                _tx.title,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              Text(
+                _tx.date.toString(),
+                style: TextStyle(color: Colors.blueGrey),
+              )
+            ],
           )
         ],
       )),
