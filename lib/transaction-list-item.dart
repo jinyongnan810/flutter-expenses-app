@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import './transaction.dart';
 
 class TransactionListItem extends StatelessWidget {
@@ -19,7 +20,7 @@ class TransactionListItem extends StatelessWidget {
               width: 100,
               alignment: Alignment.center,
               child: Text(
-                _tx.amount.toString(),
+                '\$ ${_tx.amount}',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -33,7 +34,7 @@ class TransactionListItem extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Text(
-                _tx.date.toString(),
+                DateFormat().format(_tx.date),
                 style: TextStyle(color: Colors.blueGrey),
               )
             ],
