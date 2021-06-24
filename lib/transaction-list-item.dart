@@ -34,7 +34,7 @@ class TransactionListItem extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Text(
-                DateFormat().format(_tx.date),
+                DateFormat('yyyy-MM-dd hh:mm:ss').format(_tx.date),
                 style: TextStyle(color: Colors.blueGrey),
               )
             ],
