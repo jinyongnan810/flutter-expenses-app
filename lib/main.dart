@@ -18,13 +18,13 @@ class _AppState extends State<App> {
     Transaction('id3', "gas", 200, DateTime.now()),
     Transaction('id4', "computer", 10000, DateTime.now()),
   ];
-  String titleInput = '';
-  String amountInput = '';
+  final titleControler = TextEditingController();
+  final amountControler = TextEditingController();
   void _onSubmit() {
     String txId = 'id${this.transactions.length + 1}';
     setState(() {
-      this.transactions.add(Transaction(
-          txId, titleInput, double.parse(amountInput), DateTime.now()));
+      this.transactions.add(Transaction(txId, titleControler.text,
+          double.parse(amountControler.text), DateTime.now()));
     });
   }
 
@@ -55,12 +55,12 @@ class _AppState extends State<App> {
                       TextField(
                         decoration: InputDecoration(labelText: 'Title'),
                         style: TextStyle(fontSize: 18),
-                        onChanged: (text) => {this.titleInput = text},
+                        controller: titleControler,
                       ),
                       TextField(
                         decoration: InputDecoration(labelText: 'Amount'),
                         style: TextStyle(fontSize: 18),
-                        onChanged: (text) => {this.amountInput = text},
+                        controller: amountControler,
                       ),
                       Container(
                         margin: EdgeInsets.all(10),
