@@ -25,8 +25,12 @@ class TransactionForm extends StatelessWidget {
             Container(
               margin: EdgeInsets.all(10),
               child: OutlinedButton(
-                  onPressed: () => _onSubmit(
-                      titleControler.text, double.parse(amountControler.text)),
+                  onPressed: () {
+                    _onSubmit(titleControler.text,
+                        double.parse(amountControler.text));
+                    titleControler.clear();
+                    amountControler.clear();
+                  },
                   style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                         EdgeInsets.symmetric(vertical: 10, horizontal: 15)),
