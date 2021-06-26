@@ -7,8 +7,13 @@ class TransactionList extends StatelessWidget {
   TransactionList(this._transactions);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [..._transactions.map((t) => TransactionListItem(t))],
+    return Container(
+      height: 300,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [..._transactions.map((t) => TransactionListItem(t))],
+        ),
+      ),
     );
   }
 }

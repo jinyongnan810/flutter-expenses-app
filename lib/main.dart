@@ -22,16 +22,18 @@ class _AppState extends State<App> {
           appBar: AppBar(
             title: Text('Personal Expenses'),
           ),
-          body: Column(
-            children: [
-              Container(
-                  width: double.infinity,
-                  child: Card(
-                    child: Text('chart'),
-                    elevation: 5,
-                  )),
-              UserTransactions(),
-            ],
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                    width: double.infinity,
+                    child: Card(
+                      child: Text('chart'),
+                      elevation: 5,
+                    )),
+                UserTransactions(),
+              ],
+            ),
           ),
         ));
   }
