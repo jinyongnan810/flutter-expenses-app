@@ -8,12 +8,20 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [..._transactions.map((t) => TransactionListItem(t))],
-        ),
-      ),
-    );
+        height: 300,
+        child:
+            // ListView Usage 1
+            // ListView(
+            //   children: [..._transactions.map((t) => TransactionListItem(t))],
+            // ),
+            // ListView Usage 2
+            // this way of using ListView will lazy load the items & destroy the not displayed ones
+            // saves memory and imporves performance
+            ListView.builder(
+          itemBuilder: (ctx, index) {
+            return TransactionListItem(_transactions[index]);
+          },
+          itemCount: _transactions.length,
+        ));
   }
 }
