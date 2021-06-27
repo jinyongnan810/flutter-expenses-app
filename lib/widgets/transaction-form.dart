@@ -4,6 +4,12 @@ class TransactionForm extends StatelessWidget {
   final titleControler = TextEditingController();
   final amountControler = TextEditingController();
   final _onSubmit;
+  void submitData() {
+    _onSubmit(titleControler.text, double.parse(amountControler.text));
+    titleControler.clear();
+    amountControler.clear();
+  }
+
   TransactionForm(this._onSubmit);
   @override
   Widget build(BuildContext context) {
@@ -22,16 +28,12 @@ class TransactionForm extends StatelessWidget {
               style: TextStyle(fontSize: 18),
               controller: amountControler,
               keyboardType: TextInputType.number,
+              onSubmitted: (val) => submitData(),
             ),
             Container(
               margin: EdgeInsets.all(10),
               child: OutlinedButton(
-                  onPressed: () {
-                    _onSubmit(titleControler.text,
-                        double.parse(amountControler.text));
-                    titleControler.clear();
-                    amountControler.clear();
-                  },
+                  onPressed: submitData,
                   style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                         EdgeInsets.symmetric(vertical: 10, horizontal: 15)),
