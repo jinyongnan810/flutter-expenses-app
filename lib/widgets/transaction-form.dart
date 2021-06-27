@@ -5,9 +5,18 @@ class TransactionForm extends StatelessWidget {
   final amountControler = TextEditingController();
   final _onSubmit;
   void submitData() {
-    _onSubmit(titleControler.text, double.parse(amountControler.text));
-    titleControler.clear();
-    amountControler.clear();
+    try {
+      final title = titleControler.text;
+      final amount = double.parse(amountControler.text);
+      if (title.isEmpty || amount <= 0) {
+        return;
+      }
+      _onSubmit(title, amount);
+      titleControler.clear();
+      amountControler.clear();
+    } catch (error) {
+      print('error:$error');
+    }
   }
 
   TransactionForm(this._onSubmit);
