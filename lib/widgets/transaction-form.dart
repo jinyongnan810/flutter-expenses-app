@@ -21,6 +21,7 @@ class TransactionForm extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Amount'),
               style: TextStyle(fontSize: 18),
               controller: amountControler,
+              keyboardType: TextInputType.number,
             ),
             Container(
               margin: EdgeInsets.all(10),
