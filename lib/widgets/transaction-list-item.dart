@@ -20,7 +20,7 @@ class TransactionListItem extends StatelessWidget {
               width: 100,
               alignment: Alignment.center,
               child: Text(
-                '\$ ${_tx.amount}',
+                '\$ ${_tx.amount.toStringAsFixed(2)}',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
