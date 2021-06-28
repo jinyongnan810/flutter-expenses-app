@@ -31,13 +31,14 @@ class TransactionForm extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Title'),
               style: TextStyle(fontSize: 18),
               controller: titleControler,
+              onSubmitted: (_) => submitData(),
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               style: TextStyle(fontSize: 18),
               controller: amountControler,
               keyboardType: TextInputType.number,
-              onSubmitted: (val) => submitData(),
+              onSubmitted: (_) => submitData(),
             ),
             Container(
               margin: EdgeInsets.all(10),

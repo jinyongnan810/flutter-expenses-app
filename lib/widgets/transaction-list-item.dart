@@ -17,7 +17,7 @@ class TransactionListItem extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               decoration: BoxDecoration(
                   border: Border.all(width: 2, color: Colors.purple)),
-              width: 100,
+              width: 150,
               alignment: Alignment.center,
               child: Text(
                 '\$ ${_tx.amount.toStringAsFixed(2)}',
