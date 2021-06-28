@@ -15,12 +15,14 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Personal Expenses',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
         home: Scaffold(
           appBar: AppBar(
             title: Text('Personal Expenses'),
+            actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -34,6 +36,12 @@ class _AppState extends State<App> {
                 UserTransactions(),
               ],
             ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {},
           ),
         ));
   }
