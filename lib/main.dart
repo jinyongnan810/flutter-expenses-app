@@ -27,7 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // TODO: Work not so well in android
   void startAddingTransactions(BuildContext ctx) {
     showModalBottomSheet(
         context: ctx,

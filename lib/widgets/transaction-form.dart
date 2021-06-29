@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 
-class TransactionForm extends StatelessWidget {
-  final titleControler = TextEditingController();
-  final amountControler = TextEditingController();
+// A stateful widget makes data and ui seperate with each other
+// this prevents the inputs in the form being cleared when ui re-evaluates
+class TransactionForm extends StatefulWidget {
   final _onSubmit;
+  TransactionForm(this._onSubmit);
+
+  @override
+  _TransactionFormState createState() => _TransactionFormState();
+}
+
+class _TransactionFormState extends State<TransactionForm> {
+  final titleControler = TextEditingController();
+
+  final amountControler = TextEditingController();
+
   void submitData() {
     try {
       final title = titleControler.text;
@@ -11,7 +22,7 @@ class TransactionForm extends StatelessWidget {
       if (title.isEmpty || amount <= 0) {
         return;
       }
-      _onSubmit(title, amount);
+      widget._onSubmit(title, amount);
       titleControler.clear();
       amountControler.clear();
     } catch (error) {
@@ -19,7 +30,6 @@ class TransactionForm extends StatelessWidget {
     }
   }
 
-  TransactionForm(this._onSubmit);
   @override
   Widget build(BuildContext context) {
     return Card(
