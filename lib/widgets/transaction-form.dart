@@ -25,6 +25,8 @@ class _TransactionFormState extends State<TransactionForm> {
       widget._onSubmit(title, amount);
       titleControler.clear();
       amountControler.clear();
+      // close modal sheet
+      Navigator.of(context).pop();
     } catch (error) {
       print('error:$error');
     }
