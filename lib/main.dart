@@ -11,11 +11,28 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    TextTheme lightTheme = ThemeData.light().textTheme;
     return MaterialApp(
         title: 'Personal Expenses',
         debugShowCheckedModeBanner: false,
-        theme:
-            ThemeData(primarySwatch: Colors.purple, accentColor: Colors.amber),
+        theme: ThemeData(
+            primarySwatch: Colors.purple,
+            accentColor: Colors.amber,
+            // set overall font family
+            fontFamily: 'Quicksand',
+            // set some part of text style
+            textTheme: lightTheme.copyWith(
+                headline6: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18)),
+            // set app bar title style
+            appBarTheme: AppBarTheme(
+                textTheme: lightTheme.copyWith(
+                    headline6: lightTheme.headline6?.copyWith(
+                        fontFamily: 'OpenSans',
+                        fontSize: 30,
+                        color: Colors.white)))),
         home: MyHomePage());
   }
 }
