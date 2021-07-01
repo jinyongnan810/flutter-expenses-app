@@ -17,11 +17,27 @@ class TransactionList extends StatelessWidget {
             // ListView Usage 2
             // this way of using ListView will lazy load the items & destroy the not displayed ones
             // saves memory and imporves performance
-            ListView.builder(
-          itemBuilder: (ctx, index) {
-            return TransactionListItem(_transactions[index]);
-          },
-          itemCount: _transactions.length,
-        ));
+            _transactions.isEmpty
+                ? Column(
+                    children: [
+                      Text("No transactions yet!"),
+                      // use as seperator
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Container(
+                          child: Image.asset(
+                        "assets/images/waiting.png",
+                        fit: BoxFit.cover,
+                        height: 200,
+                      ))
+                    ],
+                  )
+                : ListView.builder(
+                    itemBuilder: (ctx, index) {
+                      return TransactionListItem(_transactions[index]);
+                    },
+                    itemCount: _transactions.length,
+                  ));
   }
 }

@@ -51,12 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
-  List<Transaction> transactions = [
-    Transaction('id1', "bag", 11.11, DateTime.now()),
-    Transaction('id2', "shoe", 33, DateTime.now()),
-    Transaction('id3', "gas", 200, DateTime.now()),
-    Transaction('id4', "computer", 1000, DateTime.now()),
-  ];
+  List<Transaction> transactions = [];
   void _onSubmit(title, amount) {
     String txId = 'id${this.transactions.length + 1}';
     setState(() {
