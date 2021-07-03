@@ -52,7 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
-  List<Transaction> transactions = [];
+  List<Transaction> transactions = [
+    Transaction("1", "test1", 100, DateTime.parse("2021-06-27 00:01")),
+    Transaction("2", "test2", 100, DateTime.parse("2021-06-28 00:01")),
+    Transaction("3", "test3", 100, DateTime.parse("2021-06-29 00:01")),
+    Transaction("4", "test4", 100, DateTime.parse("2021-06-30 00:01")),
+    Transaction("5", "test5", 100, DateTime.parse("2021-07-04 00:01")),
+  ];
   void _onSubmit(title, amount) {
     String txId = 'id${this.transactions.length + 1}';
     setState(() {

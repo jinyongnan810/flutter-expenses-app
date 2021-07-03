@@ -26,13 +26,30 @@ class Chart extends StatelessWidget {
     "Sun"
   ];
   OneWeekAmount get recentWeekAmount {
-    double total = recentTransactions.fold(
-        0, (previousValue, element) => previousValue + element.amount);
-    if (total == 0) {
-      total = 100;
-    }
-    List<OneDayAmount> daily = List.generate(
-        7, (index) => OneDayAmount(weekDays[index], 11.22, 11.22 / 100));
+    DateTime now = DateTime.now();
+    int todayWeekDay = now.weekday;
+    // get total amount
+    final aWeekAgo = DateTime(now.year, now.month, now.day - 6);
+    double total = recentTransactions
+        .where((t) => t.date.isAfter(aWeekAgo))
+        .fold(0, (previousValue, element) => previousValue + element.amount);
+    // get each day amount
+    List<OneDayAmount> daily = List.generate(7, (index) {
+      // example: today: Tuesday 7/8
+      // then count from Wed 7/2 to Tue 7/8
+      final targetDay = DateTime(now.year, now.month, now.day - 6 + index);
+      final targetNextDay =
+          DateTime(now.year, now.month, now.day - 6 + index + 1);
+      double dayAmount = recentTransactions
+          .where((t) =>
+              t.date.isAfter(targetDay) && t.date.isBefore(targetNextDay))
+          .fold(0, (previousValue, element) => previousValue + element.amount);
+      int customIndex = todayWeekDay + index;
+      if (customIndex > 6) customIndex -= 7;
+      return total == 0
+          ? OneDayAmount(weekDays[customIndex], 0, 0)
+          : OneDayAmount(weekDays[customIndex], dayAmount, dayAmount / total);
+    });
     return OneWeekAmount(total, daily);
   }
 
@@ -48,7 +65,7 @@ class Chart extends StatelessWidget {
             ...recentWeekAmount.daily.map((e) => Column(
                   children: [
                     Text('\$ ${e.amount.toStringAsFixed(2)}'),
-                    Text('${e.percentage.toStringAsFixed(2)}%'),
+                    Text('${(e.percentage * 100).toStringAsFixed(2)}%'),
                     Text(e.day)
                   ],
                 ))
