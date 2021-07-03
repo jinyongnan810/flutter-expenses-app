@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import './chartbar.dart';
 import '../models/transaction.dart';
-
-class OneDayAmount {
-  final String day;
-  final double amount;
-  final double percentage;
-  OneDayAmount(this.day, this.amount, this.percentage);
-}
-
-class OneWeekAmount {
-  final double total;
-  final List<OneDayAmount> daily;
-  OneWeekAmount(this.total, this.daily);
-}
+import '../models/chart.dart';
 
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
@@ -50,15 +39,7 @@ class Chart extends StatelessWidget {
         elevation: 6,
         margin: EdgeInsets.all(20),
         child: Row(
-          children: [
-            ...recentWeekAmount.daily.map((e) => Column(
-                  children: [
-                    Text('\$ ${e.amount.toStringAsFixed(2)}'),
-                    Text('${(e.percentage * 100).toStringAsFixed(2)}%'),
-                    Text(e.day)
-                  ],
-                ))
-          ],
+          children: [...recentWeekAmount.daily.map((e) => ChartBar(e))],
         ));
   }
 }
