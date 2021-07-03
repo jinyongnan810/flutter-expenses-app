@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
 class OneDayAmount {
@@ -16,18 +17,8 @@ class OneWeekAmount {
 
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
-  final List<String> weekDays = [
-    'Mon',
-    'Tue',
-    "Wen",
-    "Thu",
-    "Fri",
-    "Sat",
-    "Sun"
-  ];
   OneWeekAmount get recentWeekAmount {
     DateTime now = DateTime.now();
-    int todayWeekDay = now.weekday;
     // get total amount
     final aWeekAgo = DateTime(now.year, now.month, now.day - 6);
     double total = recentTransactions
@@ -44,11 +35,11 @@ class Chart extends StatelessWidget {
           .where((t) =>
               t.date.isAfter(targetDay) && t.date.isBefore(targetNextDay))
           .fold(0, (previousValue, element) => previousValue + element.amount);
-      int customIndex = todayWeekDay + index;
-      if (customIndex > 6) customIndex -= 7;
+
       return total == 0
-          ? OneDayAmount(weekDays[customIndex], 0, 0)
-          : OneDayAmount(weekDays[customIndex], dayAmount, dayAmount / total);
+          ? OneDayAmount(DateFormat.E().format(targetDay), 0, 0)
+          : OneDayAmount(
+              DateFormat.E().format(targetDay), dayAmount, dayAmount / total);
     });
     return OneWeekAmount(total, daily);
   }
