@@ -29,7 +29,7 @@ class ChartBar extends StatelessWidget {
             ],
           ),
         ),
-        Text('${(oneDayAmount.percentage * 100).toStringAsFixed(2)}%'),
+        // Text('${(oneDayAmount.percentage * 100).toStringAsFixed(2)}%'),
         Text(oneDayAmount.day)
       ],
     );

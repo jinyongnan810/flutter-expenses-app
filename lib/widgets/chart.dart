@@ -39,6 +39,7 @@ class Chart extends StatelessWidget {
         elevation: 6,
         margin: EdgeInsets.all(20),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [...recentWeekAmount.daily.map((e) => ChartBar(e))],
         ));
   }
