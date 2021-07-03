@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './widgets/chart.dart';
 import './widgets/transaction-form.dart';
 import './widgets/transaction-list.dart';
 import './models/transaction.dart';
@@ -73,12 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-                width: double.infinity,
-                child: Card(
-                  child: Text('chart'),
-                  elevation: 5,
-                )),
+            Container(width: double.infinity, child: Chart(transactions)),
             TransactionList(transactions),
           ],
         ),
