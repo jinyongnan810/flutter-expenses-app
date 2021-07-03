@@ -59,6 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction("4", "test4", 100, DateTime.parse("2021-06-30 00:01")),
     Transaction("5", "test5", 100, DateTime.parse("2021-07-04 00:01")),
   ];
+
+  List<Transaction> get recentTransactions {
+    DateTime now = DateTime.now();
+    final aWeekAgo = DateTime(now.year, now.month, now.day - 6);
+    return transactions.where((t) => t.date.isAfter(aWeekAgo)).toList();
+  }
+
   void _onSubmit(title, amount) {
     String txId = 'id${this.transactions.length + 1}';
     setState(() {

@@ -20,10 +20,8 @@ class Chart extends StatelessWidget {
   OneWeekAmount get recentWeekAmount {
     DateTime now = DateTime.now();
     // get total amount
-    final aWeekAgo = DateTime(now.year, now.month, now.day - 6);
-    double total = recentTransactions
-        .where((t) => t.date.isAfter(aWeekAgo))
-        .fold(0, (previousValue, element) => previousValue + element.amount);
+    double total = recentTransactions.fold(
+        0, (previousValue, element) => previousValue + element.amount);
     // get each day amount
     List<OneDayAmount> daily = List.generate(7, (index) {
       // example: today: Tuesday 7/8
