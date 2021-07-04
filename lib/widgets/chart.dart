@@ -40,7 +40,10 @@ class Chart extends StatelessWidget {
         margin: EdgeInsets.all(20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [...recentWeekAmount.daily.map((e) => ChartBar(e))],
+          children: [
+            ...recentWeekAmount.daily
+                .map((e) => Flexible(fit: FlexFit.tight, child: ChartBar(e)))
+          ],
         ));
   }
 }
