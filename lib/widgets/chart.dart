@@ -44,7 +44,8 @@ class Chart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ...recentWeekAmount.daily
-                  .map((e) => Flexible(fit: FlexFit.tight, child: ChartBar(e)))
+                  // .map((e) => Flexible(fit: FlexFit.tight, child: ChartBar(e))) // the same with Expanded
+                  .map((e) => Expanded(child: ChartBar(e)))
             ],
           ),
         ));
