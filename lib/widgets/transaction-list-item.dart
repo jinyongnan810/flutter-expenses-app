@@ -18,19 +18,23 @@ class TransactionListItem extends StatelessWidget {
               decoration: BoxDecoration(
                   border: Border.all(
                       width: 2, color: Theme.of(context).primaryColor)),
-              width: 150,
+              width: 100,
               alignment: Alignment.center,
-              child: Text(
-                '\$ ${_tx.amount.toStringAsFixed(2)}',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Theme.of(context).primaryColor),
+              child: FittedBox(
+                child: Text(
+                  '\$ ${_tx.amount.toStringAsFixed(2)}',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Theme.of(context).primaryColor),
+                ),
               )),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(_tx.title, style: Theme.of(context).textTheme.headline6),
+              FittedBox(
+                  child: Text(_tx.title,
+                      style: Theme.of(context).textTheme.headline6)),
               Text(
                 DateFormat('yyyy-MM-dd hh:mm:ss').format(_tx.date),
                 style: TextStyle(color: Colors.blueGrey),
