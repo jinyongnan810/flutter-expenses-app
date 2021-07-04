@@ -16,15 +16,21 @@ class ChartBar extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                color: Colors.amber,
-              ),
+                  decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(3),
+                          topRight: Radius.circular(3)))),
               Container(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  width: 10,
-                  height: 100 * oneDayAmount.percentage,
-                  color: Theme.of(context).primaryColor,
-                ),
+                    width: 10,
+                    height: 100 * oneDayAmount.percentage,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(3),
+                            topRight: Radius.circular(3)))),
               )
             ],
           ),
