@@ -9,7 +9,12 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FittedBox(child: Text('\$${oneDayAmount.amount.toStringAsFixed(0)}')),
+        // when text inside FittedBox shirinks, the height of it also shrinks.
+        // therefore set a fixed height to avoid unalignment.
+        Container(
+            height: 20,
+            child: FittedBox(
+                child: Text('\$${oneDayAmount.amount.toStringAsFixed(0)}'))),
         Container(
           width: 10,
           height: 100,
