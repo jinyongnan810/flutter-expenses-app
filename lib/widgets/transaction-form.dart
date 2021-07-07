@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 // A stateful widget makes data and ui seperate with each other
 // this prevents the inputs in the form being cleared when ui re-evaluates
@@ -12,8 +13,8 @@ class TransactionForm extends StatefulWidget {
 
 class _TransactionFormState extends State<TransactionForm> {
   final titleControler = TextEditingController();
-
   final amountControler = TextEditingController();
+  DateTime? date;
 
   void submitData() {
     try {
@@ -22,14 +23,31 @@ class _TransactionFormState extends State<TransactionForm> {
       if (title.isEmpty || amount <= 0) {
         return;
       }
-      widget._onSubmit(title, amount);
+      widget._onSubmit(title, amount, date ?? DateTime.now());
       titleControler.clear();
       amountControler.clear();
+      date = null;
       // close modal sheet
       Navigator.of(context).pop();
     } catch (error) {
       print('error:$error');
     }
+  }
+
+  void persentDatePicker() {
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2021),
+            lastDate: DateTime.now())
+        .then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+      setState(() {
+        date = pickedDate;
+      });
+    });
   }
 
   @override
@@ -51,6 +69,19 @@ class _TransactionFormState extends State<TransactionForm> {
               controller: amountControler,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
+            ),
+            Container(
+              height: 70,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(date == null
+                      ? 'No Date Choosen(Today)'
+                      : DateFormat('yyyy-MM-dd hh:mm:ss').format(date!)),
+                  TextButton(
+                      onPressed: persentDatePicker, child: Text('Choose Date'))
+                ],
+              ),
             ),
             Container(
               margin: EdgeInsets.all(10),

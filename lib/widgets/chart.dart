@@ -20,6 +20,7 @@ class Chart extends StatelessWidget {
           DateTime(now.year, now.month, now.day - 6 + index + 1);
       double dayAmount = recentTransactions
           .where((t) =>
+              t.date.compareTo(targetDay) == 0 ||
               t.date.isAfter(targetDay) && t.date.isBefore(targetNextDay))
           .fold(0, (previousValue, element) => previousValue + element.amount);
 

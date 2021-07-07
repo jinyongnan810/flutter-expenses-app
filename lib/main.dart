@@ -66,10 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return transactions.where((t) => t.date.isAfter(aWeekAgo)).toList();
   }
 
-  void _onSubmit(title, amount) {
+  void _onSubmit(title, amount, date) {
     String txId = 'id${this.transactions.length + 1}';
     setState(() {
-      this.transactions.add(Transaction(txId, title, amount, DateTime.now()));
+      this.transactions.add(Transaction(txId, title, amount, date));
     });
   }
 
