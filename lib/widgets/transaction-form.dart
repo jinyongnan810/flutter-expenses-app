@@ -46,11 +46,14 @@ class _TransactionFormState extends State<TransactionForm> {
     setState(() {
       date = pickedDate;
     });
-    TimeOfDay? time = await showTimePicker(
+    TimeOfDay? pickedTime = await showTimePicker(
         context: context, initialTime: TimeOfDay(hour: 8, minute: 0));
+    if (pickedTime == null) {
+      return;
+    }
     setState(() {
-      date = new DateTime(
-          date!.year, date!.month, date!.day, time!.hour, time.minute, 0);
+      date = new DateTime(pickedDate.year, pickedDate.month, pickedDate.day,
+          pickedTime.hour, pickedTime.minute, 0);
     });
   }
 
