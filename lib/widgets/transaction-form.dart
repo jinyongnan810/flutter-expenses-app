@@ -34,19 +34,23 @@ class _TransactionFormState extends State<TransactionForm> {
     }
   }
 
-  void persentDatePicker() {
-    showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2021),
-            lastDate: DateTime.now())
-        .then((pickedDate) {
-      if (pickedDate == null) {
-        return;
-      }
-      setState(() {
-        date = pickedDate;
-      });
+  void presentDatePicker() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2021),
+        lastDate: DateTime.now());
+    if (pickedDate == null) {
+      return;
+    }
+    setState(() {
+      date = pickedDate;
+    });
+    TimeOfDay? time = await showTimePicker(
+        context: context, initialTime: TimeOfDay(hour: 8, minute: 0));
+    setState(() {
+      date = new DateTime(
+          date!.year, date!.month, date!.day, time!.hour, time.minute, 0);
     });
   }
 
@@ -79,7 +83,7 @@ class _TransactionFormState extends State<TransactionForm> {
                       ? 'No Date Choosen(Today)'
                       : DateFormat('yyyy-MM-dd hh:mm:ss').format(date!)),
                   TextButton(
-                      onPressed: persentDatePicker, child: Text('Choose Date'))
+                      onPressed: presentDatePicker, child: Text('Choose Date'))
                 ],
               ),
             ),
