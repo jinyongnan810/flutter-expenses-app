@@ -73,6 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _onDelete(String id) {
+    setState(() {
+      // transactions = transactions.where((tx) => tx.id != id).toList();
+      transactions.removeWhere((tx) => tx.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Container(width: double.infinity, child: Chart(recentTransactions)),
-            TransactionList(transactions),
+            TransactionList(transactions, _onDelete),
           ],
         ),
       ),
