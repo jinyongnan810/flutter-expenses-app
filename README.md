@@ -1,16 +1,18 @@
-# personal_expense_app
+![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1625871290/mnle4gbcwofy2mwwkeqk.png)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Nested Layouts](https://github.com/jinyongnan810/flutter-expenses-app/commit/04113148fbe345faa5da51f6cab3215702719124)
+- [Import external packages](https://github.com/jinyongnan810/flutter-expenses-app/commit/67c8cab05f11a8468aa1073cff9063fe87a4d5fc) & [format date](https://github.com/jinyongnan810/flutter-expenses-app/commit/39da15697ba733daa4665e620656a24b1275e75c)
+- [Form Submit](https://github.com/jinyongnan810/flutter-expenses-app/commit/eb46c5599d5131d4e10bd6a25e52127007deee27) & [TextInputs](https://github.com/jinyongnan810/flutter-expenses-app/commit/b72a1351385903fd3c3728981bf584e0775aaad1) & [Set keyboard type](https://github.com/jinyongnan810/flutter-expenses-app/commit/e61a0b26e941a24cbf2b455f1ab9f6d780099930)
+- [Make Scrollable](https://github.com/jinyongnan810/flutter-expenses-app/commit/4a7133499766c71934bc4b4822bdcb833bc7c564) & [Usages of List](https://github.com/jinyongnan810/flutter-expenses-app/commit/e63378f723b58c1f2881386de0ced3ba1965a727)
+- [AppBar Button & Floating Buton](https://github.com/jinyongnan810/flutter-expenses-app/commit/66bb8389fbf96125118297d51eaebd5191e61434)
+- [Show modal](https://github.com/jinyongnan810/flutter-expenses-app/commit/c722200da3ffb511ff37e2b9c4fcec90d416dfce) & [Close modal](https://github.com/jinyongnan810/flutter-expenses-app/commit/1031544f5df98487ca9954bcf37f4363f31263d7)
+- Set & Use the [theme color](https://github.com/jinyongnan810/flutter-expenses-app/commit/1e59ff1e48f0348d65c64dd62bfae944d7fd25bf) & the [theme fonts](https://github.com/jinyongnan810/flutter-expenses-app/commit/f65677e4e6bcd41e5c2b09219f0ce9a090098e40)
+- [Displaying images](https://github.com/jinyongnan810/flutter-expenses-app/commit/6adc6c25f4da27bd812726e4c50140cf4a31e26e)
+- [Working with DateTimes](https://github.com/jinyongnan810/flutter-expenses-app/commit/82ed22e4839dc8872a95278a3372470699d8f46d)
+- [Install a getter](https://github.com/jinyongnan810/flutter-expenses-app/commit/4e611622431b59e32ff20a7dd24dc5da532d0af8)
+- Create a [bar chart](https://github.com/jinyongnan810/flutter-expenses-app/commit/08c1333157210ec48b96c826886eba67efb8200c) & [set partial radius](https://github.com/jinyongnan810/flutter-expenses-app/commit/57e8ffc76911c4c1ad13bbfe616f86cbebd129eb)
+- [Spreading items](https://github.com/jinyongnan810/flutter-expenses-app/commit/02a11e522063e38f8d6432a3f4e31f292b6e83d0) or [Flex with tight to take all available space](https://github.com/jinyongnan810/flutter-expenses-app/commit/3d896af777d840244c004c01ca56252876a706fd) or using [Expanded](https://github.com/jinyongnan810/flutter-expenses-app/commit/d641988e14c17be7691fe802be55feba265e15aa)
+- [Use FittedBox to adjust text size](https://github.com/jinyongnan810/flutter-expenses-app/commit/216f2810f0ae1802d30ae30813a479375ff30426)
+- Use [ListTile](https://github.com/jinyongnan810/flutter-expenses-app/commit/f5c3c0afe97c3faaeb23cb09266abb23e57503ab) instead of columns and rows
+- Pick [date](https://github.com/jinyongnan810/flutter-expenses-app/commit/43e8c6a9842ce6c534d09cc9aed03084a9b60f4c) & [time & Use Async/Await](https://github.com/jinyongnan810/flutter-expenses-app/commit/d723bf0dabfe51bebc46e42b0f386c0684a77483)
+- [Delete Items](https://github.com/jinyongnan810/flutter-expenses-app/commit/9cd8eee88d16f975083cef3ec51e10fa06f64ec6)
