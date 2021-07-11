@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import './widgets/chart.dart';
 import './widgets/transaction-form.dart';
 import './widgets/transaction-list.dart';
 import './models/transaction.dart';
 
 void main() {
+  // force portrait landscape
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 
