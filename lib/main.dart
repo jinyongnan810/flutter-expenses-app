@@ -7,11 +7,11 @@ import './models/transaction.dart';
 
 void main() {
   // force portrait landscape
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
   runApp(MyApp());
 }
 
@@ -73,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return transactions.where((t) => t.date.isAfter(aWeekAgo)).toList();
   }
 
+  bool showChart = false;
+
   void _onSubmit(title, amount, date) {
     String txId = 'id${this.transactions.length + 1}';
     setState(() {
@@ -89,6 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     final appBar = AppBar(
       title: Text('Personal Expenses'),
       actions: [
@@ -97,23 +101,47 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.add))
       ],
     );
+    final chartSmall = Container(
+        height: (MediaQuery.of(context).size.height -
+                appBar.preferredSize.height -
+                MediaQuery.of(context).padding.top) *
+            0.3,
+        child: Chart(recentTransactions));
+    final chartBig = Container(
+        height: (MediaQuery.of(context).size.height -
+                appBar.preferredSize.height -
+                MediaQuery.of(context).padding.top) *
+            0.7,
+        child: Chart(recentTransactions));
+    final txList = Container(
+        height: (MediaQuery.of(context).size.height -
+                appBar.preferredSize.height -
+                MediaQuery.of(context).padding.top) *
+            0.7,
+        child: TransactionList(transactions, _onDelete));
+    final switchShowChart = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("Show Chart"),
+        Switch(
+            value: showChart,
+            onChanged: (val) {
+              setState(() {
+                showChart = val;
+              });
+            })
+      ],
+    );
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-                height: (MediaQuery.of(context).size.height -
-                        appBar.preferredSize.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.3,
-                child: Chart(recentTransactions)),
-            Container(
-                height: (MediaQuery.of(context).size.height -
-                        appBar.preferredSize.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.7,
-                child: TransactionList(transactions, _onDelete)),
+            if (isLandscape) switchShowChart,
+            if (isLandscape && showChart) chartBig,
+            if (isLandscape && !showChart) txList,
+            if (!isLandscape) chartSmall,
+            if (!isLandscape) txList,
           ],
         ),
       ),
