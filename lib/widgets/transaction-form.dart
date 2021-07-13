@@ -59,48 +59,55 @@ class _TransactionFormState extends State<TransactionForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Title'),
-              style: TextStyle(fontSize: 18),
-              controller: titleControler,
-              onSubmitted: (_) => submitData(),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: 'Amount'),
-              style: TextStyle(fontSize: 18),
-              controller: amountControler,
-              keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitData(),
-            ),
-            Container(
-              height: 70,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(date == null
-                      ? 'No Date Choosen(Today)'
-                      : DateFormat('yyyy-MM-dd hh:mm:ss').format(date!)),
-                  TextButton(
-                      onPressed: presentDatePicker, child: Text('Choose Date'))
-                ],
+    return SingleChildScrollView(
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(labelText: 'Title'),
+                style: TextStyle(fontSize: 18),
+                controller: titleControler,
+                onSubmitted: (_) => submitData(),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: OutlinedButton(
-                  onPressed: submitData,
-                  style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 15)),
-                  ),
-                  child: Text('Submit')),
-            )
-          ],
+              TextField(
+                decoration: InputDecoration(labelText: 'Amount'),
+                style: TextStyle(fontSize: 18),
+                controller: amountControler,
+                keyboardType: TextInputType.number,
+                onSubmitted: (_) => submitData(),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(date == null
+                        ? 'No Date Choosen(Today)'
+                        : DateFormat('yyyy-MM-dd hh:mm:ss').format(date!)),
+                    TextButton(
+                        onPressed: presentDatePicker,
+                        child: Text('Choose Date'))
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                child: OutlinedButton(
+                    onPressed: submitData,
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 15)),
+                    ),
+                    child: Text('Submit')),
+              )
+            ],
+          ),
         ),
       ),
     );
