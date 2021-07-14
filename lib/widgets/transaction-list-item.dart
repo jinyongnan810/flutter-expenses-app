@@ -29,11 +29,16 @@ class TransactionListItem extends StatelessWidget {
           DateFormat('yyyy-MM-dd hh:mm:ss').format(_tx.date),
           style: TextStyle(color: Colors.blueGrey),
         ),
-        trailing: IconButton(
-          icon: Icon(Icons.delete),
-          color: Theme.of(context).errorColor,
-          onPressed: () => _onDelete(_tx.id),
-        ),
+        trailing: MediaQuery.of(context).size.width > 400
+            ? TextButton.icon(
+                onPressed: () => _onDelete(_tx.id),
+                icon: Icon(Icons.delete),
+                label: Text('delete'))
+            : IconButton(
+                icon: Icon(Icons.delete),
+                color: Theme.of(context).errorColor,
+                onPressed: () => _onDelete(_tx.id),
+              ),
       ),
     );
   }
