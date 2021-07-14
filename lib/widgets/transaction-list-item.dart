@@ -33,6 +33,9 @@ class TransactionListItem extends StatelessWidget {
             ? TextButton.icon(
                 onPressed: () => _onDelete(_tx.id),
                 icon: Icon(Icons.delete),
+                style: TextButton.styleFrom(
+                  primary: Theme.of(context).errorColor,
+                ),
                 label: Text('delete'))
             : IconButton(
                 icon: Icon(Icons.delete),
