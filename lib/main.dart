@@ -1,5 +1,7 @@
+// used when using Platform.isIOS, not supported in web
+// import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import './widgets/chart.dart';
 import './widgets/transaction-form.dart';
 import './widgets/transaction-list.dart';
@@ -123,7 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("Show Chart"),
-        Switch(
+        Switch.adaptive(
+            activeColor: Theme.of(context).accentColor,
             value: showChart,
             onChanged: (val) {
               setState(() {
@@ -146,10 +149,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => startAddingTransactions(context),
-      ),
+      floatingActionButton: defaultTargetPlatform == TargetPlatform.iOS
+          // Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => startAddingTransactions(context),
+            ),
     );
   }
 }
