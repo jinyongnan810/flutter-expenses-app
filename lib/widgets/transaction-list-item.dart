@@ -29,7 +29,7 @@ class TransactionListItem extends StatelessWidget {
           DateFormat('yyyy-MM-dd hh:mm:ss').format(_tx.date),
           style: TextStyle(color: Colors.blueGrey),
         ),
-        trailing: MediaQuery.of(context).size.width > 400
+        trailing: MediaQuery.of(context).size.width > 500
             ? TextButton.icon(
                 onPressed: () => _onDelete(_tx.id),
                 icon: Icon(Icons.delete),
