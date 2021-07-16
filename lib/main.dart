@@ -1,5 +1,6 @@
 // used when using Platform.isIOS, not supported in web
 // import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './widgets/chart.dart';
@@ -93,9 +94,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isIOS = false; //defaultTargetPlatform == TargetPlatform.iOS;
     final mediaQuery = MediaQuery.of(context);
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
-    final appBar = AppBar(
+    final appBar1 = CupertinoNavigationBar(
+      middle: Text('Personal Expenses'),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          GestureDetector(
+            child: Icon(CupertinoIcons.add),
+            onTap: () => startAddingTransactions(context),
+          )
+        ],
+      ),
+    );
+    final PreferredSizeWidget appbar2 = AppBar(
       title: Text('Personal Expenses'),
       actions: [
         IconButton(
@@ -103,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.add))
       ],
     );
+    final PreferredSizeWidget appBar = isIOS ? appBar1 : appbar2;
     final chartSmall = Container(
         height: (mediaQuery.size.height -
                 appBar.preferredSize.height -
@@ -135,27 +150,34 @@ class _MyHomePageState extends State<MyHomePage> {
             })
       ],
     );
-    return Scaffold(
-      appBar: appBar,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            if (isLandscape) switchShowChart,
-            if (isLandscape && showChart) chartBig,
-            if (isLandscape && !showChart) txList,
-            if (!isLandscape) chartSmall,
-            if (!isLandscape) txList,
-          ],
-        ),
+    final body = SingleChildScrollView(
+      child: Column(
+        children: [
+          if (isLandscape) switchShowChart,
+          if (isLandscape && showChart) chartBig,
+          if (isLandscape && !showChart) txList,
+          if (!isLandscape) chartSmall,
+          if (!isLandscape) txList,
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: defaultTargetPlatform == TargetPlatform.iOS
-          // Platform.isIOS
-          ? Container()
-          : FloatingActionButton(
-              child: Icon(Icons.add),
-              onPressed: () => startAddingTransactions(context),
-            ),
     );
+    return isIOS
+        ? CupertinoPageScaffold(
+            child: body,
+            navigationBar: appBar1,
+          )
+        : Scaffold(
+            appBar: appBar,
+            body: body,
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+            floatingActionButton: isIOS
+                // Platform.isIOS
+                ? Container()
+                : FloatingActionButton(
+                    child: Icon(Icons.add),
+                    onPressed: () => startAddingTransactions(context),
+                  ),
+          );
   }
 }
