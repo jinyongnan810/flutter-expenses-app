@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final isIOS = false; //defaultTargetPlatform == TargetPlatform.iOS;
+    final isIOS = true; //defaultTargetPlatform == TargetPlatform.iOS;
     final mediaQuery = MediaQuery.of(context);
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final appBar1 = CupertinoNavigationBar(
@@ -150,7 +150,8 @@ class _MyHomePageState extends State<MyHomePage> {
             })
       ],
     );
-    final body = SingleChildScrollView(
+    final body = SafeArea(
+        child: SingleChildScrollView(
       child: Column(
         children: [
           if (isLandscape) switchShowChart,
@@ -160,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
           if (!isLandscape) txList,
         ],
       ),
-    );
+    ));
     return isIOS
         ? CupertinoPageScaffold(
             child: body,
