@@ -1,5 +1,4 @@
 ![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1625871290/mnle4gbcwofy2mwwkeqk.png)
-
 - [Nested Layouts](https://github.com/jinyongnan810/flutter-expenses-app/commit/04113148fbe345faa5da51f6cab3215702719124)
 - [Import external packages](https://github.com/jinyongnan810/flutter-expenses-app/commit/67c8cab05f11a8468aa1073cff9063fe87a4d5fc) & [format date](https://github.com/jinyongnan810/flutter-expenses-app/commit/39da15697ba733daa4665e620656a24b1275e75c)
 - [Form Submit](https://github.com/jinyongnan810/flutter-expenses-app/commit/eb46c5599d5131d4e10bd6a25e52127007deee27) & [TextInputs](https://github.com/jinyongnan810/flutter-expenses-app/commit/b72a1351385903fd3c3728981bf584e0775aaad1) & [Set keyboard type](https://github.com/jinyongnan810/flutter-expenses-app/commit/e61a0b26e941a24cbf2b455f1ab9f6d780099930)
@@ -16,3 +15,8 @@
 - Use [ListTile](https://github.com/jinyongnan810/flutter-expenses-app/commit/f5c3c0afe97c3faaeb23cb09266abb23e57503ab) instead of columns and rows
 - Pick [date](https://github.com/jinyongnan810/flutter-expenses-app/commit/43e8c6a9842ce6c534d09cc9aed03084a9b60f4c) & [time & Use Async/Await](https://github.com/jinyongnan810/flutter-expenses-app/commit/d723bf0dabfe51bebc46e42b0f386c0684a77483)
 - [Delete Items](https://github.com/jinyongnan810/flutter-expenses-app/commit/9cd8eee88d16f975083cef3ec51e10fa06f64ec6)
+- Use [MediaQuery](https://github.com/jinyongnan810/flutter-expenses-app/commit/2d8944d315d4905b0081b0d4124139d46f2ca731) to calculate size & use [SafeArea](https://github.com/jinyongnan810/flutter-expenses-app/commit/03cd2706a4bb114c9e1e4836b50c69645c8aedfa) & [detect device width](https://github.com/jinyongnan810/flutter-expenses-app/commit/bf9947711b09a6aad6742fad3d854070f11e35e6)
+- [Force orientation](https://github.com/jinyongnan810/flutter-expenses-app/commit/3b622ce28edde993eecd6c789beb22c9a79625dc) & [detect orientation](https://github.com/jinyongnan810/flutter-expenses-app/commit/d7ba337fcb5486be0ea7c68ee8e1257806972f32)
+- Set [TextButton style](https://github.com/jinyongnan810/flutter-expenses-app/commit/a05525162f51986ce5106422d5d0539de41feeea)
+- [Detect platform](https://github.com/jinyongnan810/flutter-expenses-app/commit/ad44e3943def909645c16a28a20ade92e9d6e6f3) & Create small widgets to [adapt to different platforms](https://github.com/jinyongnan810/flutter-expenses-app/commit/cfd2fe6818427f3c0823f7096535bcdec6b73828)
+- IOS [AppBar](https://github.com/jinyongnan810/flutter-expenses-app/commit/1aac0b029274c1993a538ae69c0136cacd22ef6e) & [Button](https://github.com/jinyongnan810/flutter-expenses-app/commit/151ee8a568b02947fcc65e7812fd379f63f73c67)
