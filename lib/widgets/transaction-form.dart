@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
+import '../widgets/adaptive-text-button.dart';
 
 // A stateful widget makes data and ui seperate with each other
 // this prevents the inputs in the form being cleared when ui re-evaluates
@@ -14,7 +15,6 @@ class TransactionForm extends StatefulWidget {
 }
 
 class _TransactionFormState extends State<TransactionForm> {
-  final isIOS = true; //defaultTargetPlatform == TargetPlatform.iOS;
   final titleControler = TextEditingController();
   final amountControler = TextEditingController();
   DateTime? date;
@@ -93,14 +93,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     Text(date == null
                         ? 'No Date Choosen(Today)'
                         : DateFormat('yyyy-MM-dd hh:mm:ss').format(date!)),
-                    isIOS
-                        // ios button changes opacity when clicked
-                        ? CupertinoButton(
-                            onPressed: presentDatePicker,
-                            child: Text('Choose Date'))
-                        : TextButton(
-                            onPressed: presentDatePicker,
-                            child: Text('Choose Date'))
+                    AdaptiveTextButton('Choose Date', this.presentDatePicker)
                   ],
                 ),
               ),
