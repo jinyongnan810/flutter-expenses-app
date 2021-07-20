@@ -28,3 +28,8 @@
 - [Ref](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/learn/lecture/15033740#overview) 
 - ![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1626747935/v6xgnbxn22gergvuesxq.png)
 - Calls `setState`,changes to `MediaQuery` makes a new execution of `build`
+#### Does running `build` leads to re-render everything on screen?
+- Running `build` will re-build all the instances of Widget Tree, 
+- but only replace its ref in Element Tree,
+- and the Element Tree detect difference in its ref, and send the differences to the Render Tree.
+- So after all, only the differences will be re-rendered.
