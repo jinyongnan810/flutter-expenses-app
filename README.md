@@ -20,3 +20,11 @@
 - Set [TextButton style](https://github.com/jinyongnan810/flutter-expenses-app/commit/a05525162f51986ce5106422d5d0539de41feeea)
 - [Detect platform](https://github.com/jinyongnan810/flutter-expenses-app/commit/ad44e3943def909645c16a28a20ade92e9d6e6f3) & Create small widgets to [adapt to different platforms](https://github.com/jinyongnan810/flutter-expenses-app/commit/cfd2fe6818427f3c0823f7096535bcdec6b73828)
 - IOS [AppBar](https://github.com/jinyongnan810/flutter-expenses-app/commit/1aac0b029274c1993a538ae69c0136cacd22ef6e) & [Button](https://github.com/jinyongnan810/flutter-expenses-app/commit/151ee8a568b02947fcc65e7812fd379f63f73c67)
+
+### Behind the scenes
+#### Flutter repaint each pixels 60 times a second (60fps)
+- But the calculation of frames doesn't necessary 60 time/s.
+#### Does flutter recalculate everything each time running `build`?
+- [Ref](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/learn/lecture/15033740#overview) 
+- ![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1626747935/v6xgnbxn22gergvuesxq.png)
+- Calls `setState`,changes to `MediaQuery` makes a new execution of `build`
