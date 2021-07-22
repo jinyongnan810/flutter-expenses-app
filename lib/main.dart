@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final mediaQuery = MediaQuery.of(context);
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final appBar1 = CupertinoNavigationBar(
-      middle: Text('Personal Expenses'),
+      middle: const Text('Personal Expenses'),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
     final PreferredSizeWidget appbar2 = AppBar(
-      title: Text('Personal Expenses'),
+      title: const Text('Personal Expenses'),
       actions: [
         IconButton(
             onPressed: () => startAddingTransactions(context),
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final switchShowChart = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Show Chart"),
+        const Text("Show Chart"),
         Switch.adaptive(
             activeColor: Theme.of(context).accentColor,
             value: showChart,
@@ -176,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Platform.isIOS
                 ? Container()
                 : FloatingActionButton(
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                     onPressed: () => startAddingTransactions(context),
                   ),
           );

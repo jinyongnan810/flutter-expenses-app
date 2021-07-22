@@ -73,14 +73,14 @@ class _TransactionFormState extends State<TransactionForm> {
           child: Column(
             children: [
               TextField(
-                decoration: InputDecoration(labelText: 'Title'),
-                style: TextStyle(fontSize: 18),
+                decoration: const InputDecoration(labelText: 'Title'),
+                style: const TextStyle(fontSize: 18),
                 controller: titleControler,
                 onSubmitted: (_) => submitData(),
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Amount'),
-                style: TextStyle(fontSize: 18),
+                decoration: const InputDecoration(labelText: 'Amount'),
+                style: const TextStyle(fontSize: 18),
                 controller: amountControler,
                 keyboardType: TextInputType.number,
                 onSubmitted: (_) => submitData(),
@@ -98,14 +98,14 @@ class _TransactionFormState extends State<TransactionForm> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: OutlinedButton(
                     onPressed: submitData,
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15)),
                     ),
-                    child: Text('Submit')),
+                    child: const Text('Submit')),
               )
             ],
           ),

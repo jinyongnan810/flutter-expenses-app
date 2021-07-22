@@ -33,3 +33,11 @@
 - but only replace its ref in Element Tree,
 - and the Element Tree detect difference in its ref, and send the differences to the Render Tree.
 - So after all, only the differences will be re-rendered.
+#### Sample of MediaQuery triggers re-build
+- Click inputs and displays keyboard,
+- the space taken by the keyboard will cause `MediaQuery` to be changed,
+- and that will cause all components depend on `MediaQuery` to re-build.
+#### Const constructor and Mark instance const
+- If a widget like `Text("title")` will never change in runtime,
+- mark its constructor as `const`, and mark its instance as `const`,
+- will avoid re-generation of the object each time the `build` runs.

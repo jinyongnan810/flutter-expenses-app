@@ -22,7 +22,7 @@ class ChartBar extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.amber,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(3),
@@ -35,7 +35,7 @@ class ChartBar extends StatelessWidget {
                           constraints.maxHeight * 0.7 * oneDayAmount.percentage,
                       decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(3),
                               topRight: Radius.circular(3)))),
                 )

@@ -32,13 +32,13 @@ class TransactionListItem extends StatelessWidget {
         trailing: MediaQuery.of(context).size.width > 500
             ? TextButton.icon(
                 onPressed: () => _onDelete(_tx.id),
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 style: TextButton.styleFrom(
                   primary: Theme.of(context).errorColor,
                 ),
-                label: Text('delete'))
+                label: const Text('delete'))
             : IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 color: Theme.of(context).errorColor,
                 onPressed: () => _onDelete(_tx.id),
               ),

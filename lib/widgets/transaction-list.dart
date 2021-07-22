@@ -19,9 +19,9 @@ class TransactionList extends StatelessWidget {
         _transactions.isEmpty
             ? Column(
                 children: [
-                  Text("No transactions yet!"),
+                  const Text("No transactions yet!"),
                   // use as seperator
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Container(
