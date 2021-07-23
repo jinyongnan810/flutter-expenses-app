@@ -41,3 +41,7 @@
 - If a widget like `Text("title")` will never change in runtime,
 - mark its constructor as `const`, and mark its instance as `const`,
 - will avoid re-generation of the object each time the `build` runs.
+#### Widget Lifecycle
+![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1627002475/utk1up4v99rvboesnvwi.png)
+#### App Lifecycle
+![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1627003505/qz9rljc8ee5yxykgljjq.png)

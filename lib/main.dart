@@ -53,7 +53,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   void startAddingTransactions(BuildContext ctx) {
     showModalBottomSheet(
         context: ctx,
@@ -90,6 +90,24 @@ class _MyHomePageState extends State<MyHomePage> {
       // transactions = transactions.where((tx) => tx.id != id).toList();
       transactions.removeWhere((tx) => tx.id == id);
     });
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance!.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("didChangeAppLifecycleState state($state)");
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
   }
 
   @override
