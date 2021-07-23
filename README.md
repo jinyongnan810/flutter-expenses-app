@@ -20,6 +20,7 @@
 - Set [TextButton style](https://github.com/jinyongnan810/flutter-expenses-app/commit/a05525162f51986ce5106422d5d0539de41feeea)
 - [Detect platform](https://github.com/jinyongnan810/flutter-expenses-app/commit/ad44e3943def909645c16a28a20ade92e9d6e6f3) & Create small widgets to [adapt to different platforms](https://github.com/jinyongnan810/flutter-expenses-app/commit/cfd2fe6818427f3c0823f7096535bcdec6b73828)
 - IOS [AppBar](https://github.com/jinyongnan810/flutter-expenses-app/commit/1aac0b029274c1993a538ae69c0136cacd22ef6e) & [Button](https://github.com/jinyongnan810/flutter-expenses-app/commit/151ee8a568b02947fcc65e7812fd379f63f73c67)
+- Attach key to list items.(when the list item is stateful, in here its useless)
 
 ### Behind the scenes
 #### Flutter repaint each pixels 60 times a second (60fps)
@@ -45,3 +46,7 @@
 ![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1627002475/utk1up4v99rvboesnvwi.png)
 #### App Lifecycle
 ![image](https://res.cloudinary.com/dsiz9ikkt/image/upload/v1627003505/qz9rljc8ee5yxykgljjq.png)
+- [Detect state](https://github.com/jinyongnan810/flutter-expenses-app/commit/2da9541c0b6d630434264bd46e99927ea626f2ac)
+#### About Context
+- Context exist for every widgets, 
+- and holds information of its widget position in widget tree and overall widget tree metadata information.

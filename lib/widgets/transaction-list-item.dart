@@ -5,7 +5,7 @@ import '../models/transaction.dart';
 class TransactionListItem extends StatelessWidget {
   final Transaction _tx;
   void Function(String) _onDelete;
-  TransactionListItem(this._tx, this._onDelete);
+  TransactionListItem(this._tx, this._onDelete) : super(key: ValueKey(_tx.id));
 
   @override
   Widget build(BuildContext context) {
