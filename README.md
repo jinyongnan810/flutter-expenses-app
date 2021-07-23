@@ -20,7 +20,7 @@
 - Set [TextButton style](https://github.com/jinyongnan810/flutter-expenses-app/commit/a05525162f51986ce5106422d5d0539de41feeea)
 - [Detect platform](https://github.com/jinyongnan810/flutter-expenses-app/commit/ad44e3943def909645c16a28a20ade92e9d6e6f3) & Create small widgets to [adapt to different platforms](https://github.com/jinyongnan810/flutter-expenses-app/commit/cfd2fe6818427f3c0823f7096535bcdec6b73828)
 - IOS [AppBar](https://github.com/jinyongnan810/flutter-expenses-app/commit/1aac0b029274c1993a538ae69c0136cacd22ef6e) & [Button](https://github.com/jinyongnan810/flutter-expenses-app/commit/151ee8a568b02947fcc65e7812fd379f63f73c67)
-- Attach key to list items.(when the list item is stateful, in here its useless)
+- [Attach key to list items](https://github.com/jinyongnan810/flutter-expenses-app/commit/66707b43178771902819df2f042d9e675e16e890).(when the list item is stateful, in here its useless)
 
 ### Behind the scenes
 #### Flutter repaint each pixels 60 times a second (60fps)
