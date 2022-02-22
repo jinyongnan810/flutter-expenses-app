@@ -1,7 +1,5 @@
 // used when using Platform.isIOS, not supported in web
 // import 'dart:io';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './widgets/chart.dart';
 import './widgets/transaction-form.dart';
@@ -115,18 +113,6 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
     final isIOS = true; //defaultTargetPlatform == TargetPlatform.iOS;
     final mediaQuery = MediaQuery.of(context);
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
-    final appBar1 = CupertinoNavigationBar(
-      middle: const Text('Personal Expenses'),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          GestureDetector(
-            child: Icon(CupertinoIcons.add),
-            onTap: () => startAddingTransactions(context),
-          )
-        ],
-      ),
-    );
     final PreferredSizeWidget appbar2 = AppBar(
       title: const Text('Personal Expenses'),
       actions: [
@@ -135,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
             icon: Icon(Icons.add))
       ],
     );
-    final PreferredSizeWidget appBar = isIOS ? appBar1 : appbar2;
+    final PreferredSizeWidget appBar = appbar2;
     final chartSmall = Container(
         height: (mediaQuery.size.height -
                 appBar.preferredSize.height -
@@ -180,23 +166,17 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
         ],
       ),
     ));
-    return isIOS
-        ? CupertinoPageScaffold(
-            child: body,
-            navigationBar: appBar1,
-          )
-        : Scaffold(
-            appBar: appBar,
-            body: body,
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerFloat,
-            floatingActionButton: isIOS
-                // Platform.isIOS
-                ? Container()
-                : FloatingActionButton(
-                    child: const Icon(Icons.add),
-                    onPressed: () => startAddingTransactions(context),
-                  ),
-          );
+    return Scaffold(
+      appBar: appBar,
+      body: body,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: isIOS
+          // Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              child: const Icon(Icons.add),
+              onPressed: () => startAddingTransactions(context),
+            ),
+    );
   }
 }
